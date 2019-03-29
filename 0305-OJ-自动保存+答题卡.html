@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title></title>
+		<style type="text/css">
+			#mainBoard{
+				width: 62%;
+				height: 3000px;
+				border: gray solid 1px;
+				margin: 10px 20px;
+				padding: 10px 50px;
+				float: left;
+			}
+			#answer{
+				width: 25%;
+				border: gray solid 1px;
+				margin: 50px 0px;
+				padding: 0;
+				float: right;
+				position: fixed;
+				right: 20px;
+				top: 20px;
+			}
+			#header{
+				background-color: darkgrey;
+				text-align: center;
+				border: black 1px solid;
+			}
+			#content{
+				padding: 5px;
+			}
+			button{
+				width: 30px;
+				margin: 3px;
+				background-color: aquamarine;
+			}
+			#submit{
+				width: 70px;
+				height: 30px;
+				float: right;
+				position: fixed;
+				top: 170px;
+				right: 150px;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="mainBoard">
+			<p id="p1"><a id="a1">1. 1+1=</a></p>
+			<input type="radio" name="num1" value="1" />1
+			<input type="radio" name="num1" value="2" />2
+			
+			<p id="p2"><a id="a2">2. 1+2=</a></p>
+			<input type="radio" name="num2" value="2" />2
+			<input type="radio" name="num2" value="3" />3
+			
+			<p id="p3"><a id="a3">3. 1+3=</a></p>
+			<input type="radio" name="num3" value="3" />3
+			<input type="radio" name="num3" value="4" />4
+			
+			<p id="p4"><a id="a4">4. 1+4=</a></p>
+			<input type="radio" name="num4" value="4" />4
+			<input type="radio" name="num4" value="5" />5
+			
+			<p id="p5"><a id="a5">5. 1+5=</a></p>
+			<input type="radio" name="num5" value="5" />5
+			<input type="radio" name="num5" value="6" />6
+			
+			<p id="p6"><a id="a6">6. 1+6=</a></p>
+			<input type="radio" name="num6" value="6" />6
+			<input type="radio" name="num6" value="7" />7
+			
+			<p id="p7"><a id="a7">7. 1+7=</a></p>
+			<input type="radio" name="num7" value="7" />7
+			<input type="radio" name="num7" value="8" />8
+			
+			<p id="p8"><a id="a8">8. 1+8=</a></p>
+			<input type="radio" name="num8" value="8" />8
+			<input type="radio" name="num8" value="9" />9
+			
+			<p id="p9"><a id="a9">9. 1+9=</a></p>
+			<input type="radio" name="num9" value="9" />9
+			<input type="radio" name="num9" value="10" />10
+			
+			<p id="p10"><a id="a10">10. 1+10=</a></p>
+			<input type="radio" name="num10" value="10" />10
+			<input type="radio" name="num10" value="11" />11
+		</div>
+		
+		<div id="answer">
+			<div id="header">答题卡</div>
+			<div id="content">
+				<!-- <button type="button" onclick="this.style.backgroundColor='#FF0000';">1</button> //-->
+				<button type="button" onclick="window.location.hash = '#a1'">1</button>
+				<button type="button" onclick="window.location.hash = '#a2'">2</button>
+				<button type="button" onclick="window.location.hash = '#a3'">3</button>
+				<button type="button" onclick="window.location.hash = '#a4'">4</button>
+				<button type="button" onclick="window.location.hash = '#a5'">5</button>
+				<button type="button" onclick="window.location.hash = '#a6'">6</button>
+				<button type="button" onclick="window.location.hash = '#a7'">7</button>
+				<button type="button" onclick="window.location.hash = '#a8'">8</button>
+				<button type="button" onclick="window.location.hash = '#a9'">9</button>
+				<button type="button" onclick="window.location.hash = '#a10'">10</button>
+			</div>
+		</div>
+		<button id="submit" type="button" onclick="autoSave()">提交</button>
+		<script>
+			function autoSave() {
+				var answers="";
+				for (var j=1;j<=3;j++){
+					var flag = 0;
+					num="num"+j
+					var objList = document.getElementsByName(num);
+					for(var i=0;i<objList.length;i++){
+						if(objList[i].checked){
+							answers+=j+"-"+objList[i].value+"   "; 
+						}
+					}
+				}
+				alert(answers);
+			}
+		</script>
+	</body>
+</html>
